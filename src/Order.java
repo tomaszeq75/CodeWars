@@ -12,6 +12,12 @@ public class Order {
         return String.join(" ", map.values());
     }
 
+    public static String order1(String words) {
+        return Arrays.stream(words.split(" "))
+                .sorted(Comparator.comparing(s -> s.replaceAll("\\D+", "")))
+                .collect(Collectors.joining(" "));
+    }
+
     public static void main(String[] args) {
         System.out.println(Order.order("is2 Thi1s T4est 3a"));
         System.out.println(Order.order("is This Test a"));
